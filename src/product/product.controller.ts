@@ -17,7 +17,12 @@ export class ProductController {
 
   @Post() //http method
   create(@Body() createProductDto: CreateProductDto) {
-    return { message: 'okay' };
+    return {
+      message: 'okay',
+      data: {
+        createProductDto,
+      },
+    };
   }
 
   @Get()
