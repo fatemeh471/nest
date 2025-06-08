@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ProductModule } from './product/product.module';
 import { LoggerMiddleware } from './logger/logger.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import Users from './entities/user.entity';
 
 @Module({
   imports: [
@@ -12,11 +13,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       host: 'localhost',
       port: 5432,
       username: 'postgres',// بصورت دیفالت این هستش
-      password: 'mysecretpassword',//  با دستور از ترمینال عوض اش کن موقع نصب اگرهم نگرفتی 
+      password: 'mysecretpassword',//  با دستور از ترمینالپسورد  عوض اش کن موقع نصب اگرهم نگرفتی 
       database: 'nestjs',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    TypeOrmModule.forFeature([Users]),
     ProductModule,
   ],
   controllers: [AppController],
