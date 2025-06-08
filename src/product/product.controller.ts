@@ -15,7 +15,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
-  @Post() //http method
+  @Post() // http method
   create(@Body() createProductDto: CreateProductDto) {
     return {
       message: 'okay',
