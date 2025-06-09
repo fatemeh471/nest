@@ -9,6 +9,7 @@ async function bootstrap() {
     app.use(
     session({
       secret: 'secret',
+      
     }),
   );
   app.use(passport.initialize());

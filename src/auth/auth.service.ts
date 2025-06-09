@@ -12,6 +12,7 @@ import Users from 'src/entities/user.entity';
 export class AuthService {
   constructor(
     private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
   ) {}
   async register(registerDto: RegisterDto) {
     const user = await this.usersService.findUserByEmail(registerDto.email);
@@ -35,7 +36,25 @@ export class AuthService {
     // });
     return await this.usersService.createUser(registerDto);
   }
-  login(loginDto: LoginDto) {
-    return '';
+  async login(loginDto: LoginDto) {
+    const user = await this.usersService.findUserByEmail(loginDto.email);
+    if (!user) {
+      throw new HttpException('User not found', 404);
+    }
+
+    const isPasswordMath = await bcrypt.compare(
+      loginDto.password,
+      user.password,
+    );
+    if (!isPasswordMath) {
+      throw new HttpException('wrong password', 400);
+    }
+    const accessToken = this.jwtService.sign({
+      sub: user.id,
+      email: user.email,
+    });
+    return {
+      access_token: accessToken,
+    };
   }
 }
