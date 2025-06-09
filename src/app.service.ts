@@ -10,8 +10,8 @@ import { Injectable } from '@nestjs/common';
 // کارهایی که می‌توان با Middleware انجام داد:
 // چک کردن توکن/کوکی کاربر قبل از نمایش صفحه و مثلاً اگر کاربر لاگین نکرده، بفرستش به صفحه login بر اساس زبان مرورگر، ریدایرکت به /en یا /fa لاگ‌گیری و مانیتورینگ	ومثلا جلوگیری از دسترسی IPهای خاص
 
-
- 
+//passport package قبل از اینکه ریکوست برسه به کنترلر برسی میکنه مثل میدلورها yarn add password
+ // password هش میشه و هش شده توی دیتابیس ذخبره میشه برای هش کردن yarn add bcryptjs
 
 @Injectable()
 export class AppService {
