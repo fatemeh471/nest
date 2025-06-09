@@ -11,7 +11,8 @@ import { Injectable } from '@nestjs/common';
 // چک کردن توکن/کوکی کاربر قبل از نمایش صفحه و مثلاً اگر کاربر لاگین نکرده، بفرستش به صفحه login بر اساس زبان مرورگر، ریدایرکت به /en یا /fa لاگ‌گیری و مانیتورینگ	ومثلا جلوگیری از دسترسی IPهای خاص
 
 //passport package قبل از اینکه ریکوست برسه به کنترلر برسی میکنه مثل میدلورها yarn add password
- // password هش میشه و هش شده توی دیتابیس ذخبره میشه برای هش کردن yarn add bcryptjs
+// password هش میشه و هش شده توی دیتابیس ذخبره میشه برای هش کردن yarn add bcryptjs
+// validate with class-transformer   // ValidationPipe from nest  ValidationPipe یه تایپ قبل از اینکه به کتنرل برسه dtoها رو ولیدت میکنه
 
 @Injectable()
 export class AppService {
