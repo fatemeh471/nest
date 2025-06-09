@@ -29,6 +29,7 @@ export class ProductController {
   }
 
   @Get()
+  @UseGuards(JwtAuthGuard)
   findAll() {
     return [];
   }
