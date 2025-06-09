@@ -18,7 +18,7 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Post() // http method
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   create(@Body() createProductDto: CreateProductDto) {
     return {
       message: 'okay',

@@ -10,7 +10,8 @@ async function bootstrap() {
   // اضافه کردن میدلورها
    app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true,
+      whitelist: true, // برای زمانی که نام استرینگ دارم با پسورد هم بفرسته ولیدیشن هایی که بود فقط نیم رو چک میکمنیم و
+      // وقتی اضافه کنی مثلا فیلد پسورد  رو ارور میده چیزایی که تو وایت لیست هستن مثل نیم رو چک میکنه
     }),
   );
     app.use(
